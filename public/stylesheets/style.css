@@ -1,0 +1,24 @@
+.products-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.card-main-div{
+    border: 1px solid #333333;
+    width: 300px;
+    margin: 20px;
+}
+
+.card-img-div{
+    
+}
+
+.card-img{
+    max-height: 150px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}

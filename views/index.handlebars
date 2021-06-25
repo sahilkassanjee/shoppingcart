@@ -1,0 +1,28 @@
+
+<div class="products-wrapper">
+{{# each products}}
+
+    <div class="card-main-div">
+        <div class="card-img-div">
+            <img src={{this.imagePath}} class="card-img">
+        </div>
+{{this.title}}
+        <div>
+            <p>  {{this.description}}</p>
+        <div>
+            
+            {{this.price}}
+        </div>
+        <button>Add to Cart</button>
+        </div>
+
+
+        
+    </div>
+
+      
+    {{/each}}
+      
+
+</div>
+
