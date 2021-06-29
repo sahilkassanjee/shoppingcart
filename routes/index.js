@@ -1,12 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var Product = require('../models/product')
-var csrf = require('csurf')
-const passport = require('passport')
 
-var csrfProtection = csrf()
-
-router.use(csrfProtection)
 
 router.get('/', (req, res) => {
     Product.find((err, docs) => {

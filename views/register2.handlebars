@@ -1,0 +1,43 @@
+<form action="/sent" method="POST">
+  <div>
+      {{alreadyExists }} <br>
+    <label for="name">Name:</label>
+    <input 
+    name="name" 
+    type="text" 
+    value={{name}}
+    required>
+  </div>
+
+  <div>
+    <label for="email">E-mail:</label>
+    <input 
+    name="email" 
+    type="text" 
+    value={{email}}
+    required>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input 
+    name="password" 
+    type="password"
+    value={{password}}
+    required>
+  </div>
+
+  <div>
+    {{passwordMatch}}<br>
+    <label for="name">Confirm password:</label>
+    <input 
+    name="password2"
+    type="password"
+    value={{password2}} 
+    required>
+  </div>
+
+
+  <button type="submit">Submit</button>
+
+</form>
