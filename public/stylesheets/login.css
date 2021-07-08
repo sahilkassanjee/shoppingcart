@@ -1,0 +1,12 @@
+.login-section{
+    height: 90vh;
+    text-align: center;
+}
+
+.login-div{
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

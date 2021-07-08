@@ -1,28 +1,33 @@
+//express
 const express = require('express');
-
-const bodyParser = require('body-parser');
-
 const app = express();
-
+//bodyparser
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({
     extended: true
   }));
 
+//imports
 require('dotenv').config()
-
 const mongoose = require('mongoose')
-
 const exphbs = require('express-handlebars')
 const path = require('path')
 const session = require('express-session')
-const passport = require('passport')
 const flash = require('connect-flash')
 
-
+//route imports
 const userRoutes = require('./routes/user')
 const indxRoutes = require('./routes/index')
+const loginRoutes = require('./routes/login')
+const otherRoutes = require('./routes/routes')
+
+//routes
+app.use(indxRoutes)
+app.use(userRoutes)
+app.use(loginRoutes)
+app.use(otherRoutes)
+
 //Templataing engine
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}))
 app.set('view engine', 'handlebars');
@@ -46,19 +51,13 @@ app.use((req, res, next) => {
 })
 
 
-//routes
-app.use(indxRoutes)
-app.use(userRoutes)
 
 //database
 mongoose.connect(process.env.DB_CONNECTION, (err) => {
     if(err){
         console.log(err)
-    }
-    
+    }  
     console.log('database connected')
-
-
 })
 
 require('./config/passport');
