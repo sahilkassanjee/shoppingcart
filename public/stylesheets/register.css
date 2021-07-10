@@ -1,0 +1,21 @@
+.register-section{
+    height: 90vh;
+    text-align: center;
+}
+
+.register-div{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form{
+    text-align: left;
+
+}
+
+form div {
+    margin: 10px;
+}

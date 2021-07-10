@@ -8,25 +8,42 @@ app.use(bodyParser.urlencoded({
     extended: true
   }));
 
+const session = require('express-session')
+const passport = require('passport')
+const flash = require('connect-flash')
+app.use(flash())
+require('./config/passport')(passport)
+
+  app.use(session({
+      secret: 'secret',
+      resave: 'save',
+      saveUninitialized: true
+  }))
+
+  app.use(passport.initialize())
+  app.use(passport.session())
 //imports
 require('dotenv').config()
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const path = require('path')
-const session = require('express-session')
-const flash = require('connect-flash')
+
+
 
 //route imports
 const userRoutes = require('./routes/user')
 const indxRoutes = require('./routes/index')
 const loginRoutes = require('./routes/login')
 const otherRoutes = require('./routes/routes')
+const registerRoutes = require('./routes/register');
+
 
 //routes
 app.use(indxRoutes)
 app.use(userRoutes)
 app.use(loginRoutes)
 app.use(otherRoutes)
+app.use(registerRoutes)
 
 //Templataing engine
 app.engine('handlebars', exphbs({defaultLayout: 'layout'}))
@@ -51,6 +68,10 @@ app.use((req, res, next) => {
 })
 
 
+//404
+app.use((req, res) => {
+    res.send('404: page not found')
+})
 
 //database
 mongoose.connect(process.env.DB_CONNECTION, (err) => {

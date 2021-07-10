@@ -1,33 +1,46 @@
-<form action="/sent" method="POST">
+
+<section class="register-section">
+  <div class="register-div">
+    
+<form action="/register" method="POST">
+{{userExists}}
   <div>
-    <label for="name">Name:</label>
+      {{msg}} <br>
+    <label for="name">Name:</label><br>
     <input 
     name="name" 
     type="text" 
+    value={{name}}
     required>
   </div>
 
   <div>
-    <label for="email">E-mail:</label>
+    <label for="email">E-mail:</label><br>
     <input 
     name="email" 
     type="text" 
+    value={{email}}
     required>
   </div>
 
   <div>
-    <label for="password">Password:</label>
+    {{passwordMatch}}
+    {{passwordError}}
+    <label for="password">Password:</label><br>
     <input 
     name="password" 
     type="password"
+    placeholder="Enter a new password"
     required>
   </div>
 
   <div>
-    <label for="name">Confirm password:</label>
+
+    <label for="name">Confirm password:</label><br>
     <input 
     name="password2"
     type="password"
+    placeholder="Confirm new Password"
     required>
   </div>
 
@@ -35,3 +48,5 @@
   <button type="submit">Submit</button>
 
 </form>
+  </div>
+</section>
